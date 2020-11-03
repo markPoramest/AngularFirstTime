@@ -1,0 +1,41 @@
+<h1>Angular Workshop</h1>
+<ul>
+    <li><b>Name</b> : {{name}}</li>
+    <li><b>Age</b> : {{age}}</li>
+    <li><b>Email</b> : {{email}}</li>
+    <li><b>Address</b> : {{address.street}} , {{address.city}} , {{address.province}} , {{address.postcode}}</li>
+</ul>
+<h2>Edit Profile</h2>
+<form>
+    <div>
+        <label for="name"><b>Name : </b></label>
+        <input type="text" [(ngModel)]="name" name = "name">
+    </div>
+
+    <div>
+        <label for="age"><b>Age : </b></label>
+        <input type="text" [(ngModel)]="age" name = "age">
+    </div>
+
+    <div>
+        <label for="Email"><b>Email : </b></label>
+        <input type="text" [(ngModel)]="email" name = "email">
+    </div>
+</form>
+<h2>Skills</h2>
+<form (submit)="addSkill(skill.value)">
+    <div>
+        <label for="skill">skill : </label>
+        <input type="text" #skill placeholder="Add your skill">
+    </div>
+</form>
+<ul>
+    <li style="list-style-type: none;" *ngFor="let skill of skills;let i = index;">{{i+1}} : {{skill}} <button (click)="removeSkill(skill)">delete</button></li>
+</ul>
+
+<h2>Todo List</h2>
+<ul>
+    <li *ngFor="let todo of todoList; "><b>
+    {{todo.id}}.
+    </b>{{todo.title}}</li>
+</ul>
